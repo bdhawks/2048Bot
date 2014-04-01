@@ -57,7 +57,9 @@ public class Main
         int y=((int)rect.getY()+40);
         int x=((int)rect.getX()+30);
         
-        retrieveScreenResolution();
+        //new thoughts: faster algorithm when searching by screen cap
+        
+        retrieveScreenResolution();//get dat res
         
         Color c;
         
@@ -72,6 +74,8 @@ public class Main
 
            
            Color prevColor = new Color(0);
+           
+           //check if color is the same as previous index
            for(int i=0; i < dataBuffInt.length; i ++){
         	   c = new Color(dataBuffInt[i]);
         	   if(c.getRGB() != prevColor.getRGB()){
@@ -85,8 +89,10 @@ public class Main
         	  prevColor = c;
            }
         }catch(Exception e){
+        	//dat error catch do
         	System.out.println(e.toString());
         }
+        //end
         
         for(int i=0;i<4;i++)
         {
